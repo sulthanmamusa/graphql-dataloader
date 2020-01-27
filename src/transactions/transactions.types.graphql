@@ -1,0 +1,26 @@
+type Query {
+    transactions: [Transactions]
+    transaction(id: Int): Transactions
+}
+
+type Mutation {
+    createTransaction(transaction: TransactionsInput): Transactions
+    updateTransaction(id: Int, transaction: TransactionsInput): Boolean
+    deleteTransaction(id: Int): Boolean
+}
+
+type Transactions {
+    id: Int
+    creditdebit: String
+    amount: String
+    account_id: Int
+    status: Boolean
+
+    account: Accounts
+}
+
+input TransactionsInput {
+    creditdebit: String
+    amount: String
+    account_id: Int
+}

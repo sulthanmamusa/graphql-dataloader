@@ -1,0 +1,26 @@
+type Query {
+    branches: [Branches]
+    branch(id: Int): Branches
+}
+
+type Mutation {
+    createBranch(branch: BranchesInput): Branches
+    updateBranch(id: Int, branch: BranchesInput): Boolean
+    deleteBranch(id: Int): Boolean
+}
+
+type Branches {
+    id: Int
+    name: String
+    city: String
+    assets: String
+    status: Boolean
+
+    accounts: [Accounts]
+}
+
+input BranchesInput {
+    name: String
+    city: String
+    assets: String
+}

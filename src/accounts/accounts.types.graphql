@@ -1,0 +1,28 @@
+type Query {
+    accounts: [Accounts]
+    account(id: Int): Accounts
+}
+
+type Mutation {
+    createAccount(account: AccountsInput): Accounts
+    updateAccount(id: Int, account: AccountsInput): Boolean
+    deleteAccount(id: Int): Boolean
+}
+
+type Accounts {
+    id: Int
+    name: String
+    city: String
+    branch_id: Int
+    status: Boolean
+
+    branch: Branches
+
+    transactions: [Transactions]
+}
+
+input AccountsInput {
+    name: String
+    city: String
+    branch_id: Int
+}
